@@ -1,18 +1,11 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata } from "next";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-import "flag-icons/css/flag-icons.min.css";
 
-const geistSans = Geist({
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-});
-
-export const metadata = {
-  title: "Donut Browser - Anti-Detection Browser Manager",
-  description: "Manage multiple browser profiles with advanced anti-fingerprinting and proxy configuration",
+export const metadata: Metadata = {
+  title: "Donut Browser - Anti-Detection Profile Manager",
+  description: "Manage multiple browser profiles with advanced anti-detection features",
 };
 
 export default function RootLayout({
@@ -22,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${geistSans.className} ${geistMono.className} antialiased`}>
+      <body
+        className={`${GeistSans.variable} ${GeistMono.variable} font-sans antialiased`}
+      >
         {children}
       </body>
     </html>
